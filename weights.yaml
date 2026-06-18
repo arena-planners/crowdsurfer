@@ -1,0 +1,7 @@
+files:
+  - repo: arena-rosnav/crowdsurfer
+    filename: vqvae_best_64_4.bin
+    dest: model/crowdsurfer_best_64_4/vqvae_best_64_4.bin
+  - repo: arena-rosnav/crowdsurfer
+    filename: pixelcnn_best_64_4.bin
+    dest: model/crowdsurfer_best_64_4/pixelcnn_best_64_4.bin

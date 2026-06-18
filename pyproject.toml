@@ -1,0 +1,33 @@
+[project]
+name = "arena_planners_crowdsurfer"
+version = "0.0.0"
+description = "CrowdSurfer (VQ-VAE + PixelCNN + PRIEST) planner adapter for the arena_planners bridge."
+requires-python = ">=3.10"
+dependencies = [
+    "arena_planners",
+    "torch>=2.2,<2.3",
+    "numpy<2",
+    "scipy",
+    "jax>=0.4.30,<0.5",
+    "jaxlib>=0.4.30,<0.5",
+    "accelerate",
+    "pyyaml",
+]
+
+[tool.uv.sources]
+arena_planners = { git = "https://github.com/arena-planners/arena_planners.git", branch = "jazzy", subdirectory = "arena_planners" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources.torch]
+index = "pytorch-cpu"
+
+[tool.setuptools]
+packages = ["crowdsurfer_net"]
+py-modules = []
+
+[tool.ruff.lint.isort]
+known-first-party = ["crowdsurfer_net"]
