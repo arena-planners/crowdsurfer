@@ -55,7 +55,6 @@ _CHECKPOINT_DIR = os.path.join(str(_HERE), "model", "crowdsurfer_best_64_4")
 # angles as linspace over the FOV. Arena lidars are 360-deg; matches the smoke
 # harness (angle_min=-pi, angle_max=pi).
 _SCAN_ANGLE_MIN = -np.pi
-_SCAN_ANGLE_MAX = np.pi
 _SCAN_MAX_USEFUL_RANGE = 50.0
 
 # Control extraction (ros_interface.py): average the first num_control_samples
@@ -248,7 +247,7 @@ def step(features: dict) -> list[float]:
     scan_raw = features.get("laser_scan")
     if scan_raw is not None and len(scan_raw) > 0:
         ranges = np.asarray(scan_raw, dtype=np.float32)
-        angles = np.linspace(_SCAN_ANGLE_MIN, _SCAN_ANGLE_MAX, len(ranges), dtype=np.float32)
+        angles = (_SCAN_ANGLE_MIN + 2.0 * np.pi * np.arange(len(ranges)) / len(ranges)).astype(np.float32)
     else:
         ranges = np.zeros(0, dtype=np.float32)
         angles = np.zeros(0, dtype=np.float32)
