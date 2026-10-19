@@ -2,6 +2,8 @@ files:
   - repo: arena-rosnav/crowdsurfer
     filename: vqvae_best_64_4.bin
     dest: model/crowdsurfer_best_64_4/vqvae_best_64_4.bin
+    sha256: 8d0c7a754fda1da9fffdbcb8f877c6e8b2e8192d980df98bbfa548bf27f7bef5
   - repo: arena-rosnav/crowdsurfer
     filename: pixelcnn_best_64_4.bin
     dest: model/crowdsurfer_best_64_4/pixelcnn_best_64_4.bin
+    sha256: 584b0f2df7cc5ac005cb9cb6806dd3ab6cf0288e03585f5560835ac950059143
